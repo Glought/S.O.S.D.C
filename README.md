@@ -15,7 +15,9 @@ Then click on "Start/Save" to Enable the hotkey and save Message. "S" will disab
 
 The Indicator will change from Red to Green when the hotkey is enabled.
 
-
+Download
+==========
+https://github.com/Glought/S.O.S.D.C/releases
 
 Settings
 ==========
