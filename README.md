@@ -20,9 +20,9 @@ The Indicator will change from Red to Green when the hotkey is enabled.
 Settings
 ==========
 
-Start Tag:For use in Xsplit. Remove for use in OBS>Default: "<xsplit>
+Start Tag:For use in Xsplit. Remove for use in OBS.Default: "<xsplit>
 
-End Tag: For use in Xsplit. Remove for use in OBS>Default: "</xsplit>
+End Tag: For use in Xsplit. Remove for use in OBS.Default: "</xsplit>
 
 HotKey: Select from the list what hotkey you want to use:Default:H
 
