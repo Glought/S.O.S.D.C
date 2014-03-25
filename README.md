@@ -13,7 +13,7 @@ Then click on apply. Change Message to what you want it to say its by default se
 Then click on "Start/Save" to Enable the hotkey and save Message. "S" will disable the hotkey.
 "Reset Count" will reset the count.
 
-The Indicater will change from Red to Green when the hotkey is enabled.
+The Indicator will change from Red to Green when the hotkey is enabled.
 
 
 
