@@ -30,7 +30,8 @@ Save Count:When checked will save count number.Usefull when you want to continue
 
 Reverse Text Order:Reverses the text order in text file.Off:"Message:Count" On:"Count:Message".Default:Off
 
-Don't Change hotkey:Check this when you don't want the hotkey changed.Uncheck when you want to change the hotkey.
+Lock Icon:Click to unlock when you want to change the hotkey.Unlocked on first use of S.O.S.D.C.
+Will be locked when apply or cancel is clicked.
 
 Current HotKey:Sates the current hotkey.
 
