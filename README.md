@@ -38,7 +38,6 @@ License
   Simple On Screen Death Counter(S.O.S.D.C) Increments a number when a hotkey is press to a txt file.
   Copyright 2014 ThoughtsOfGlought
 
-  This file is part of Simple On Screen Death Counter(S.O.S.D.C).
   Simple On Screen Death Counter(S.O.S.D.C) is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
   the Free Software Foundation, either version 3 of the License, or
