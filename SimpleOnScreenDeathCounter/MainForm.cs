@@ -42,7 +42,7 @@ namespace SimpleOnScreenDeathCounter
             keyboardHookManager = new KeyboardHookListener(new GlobalHooker());
             keyboardHookManager.Enabled = true;
             keyboardHookManager.KeyUp += KeyBoardHook_KeyUp;
-
+            Properties.Settings.Default.HotKey = Keys.H;
             messageTextBox.Text = Properties.Settings.Default.Message;
             this.Message = messageTextBox.Text;
 
