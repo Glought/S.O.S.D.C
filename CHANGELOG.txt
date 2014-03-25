@@ -1,2 +1,6 @@
+V1.0.1:
+Made "H" the default Hot key
+
+
 V1.0.0:
 First release.
