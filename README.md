@@ -3,6 +3,8 @@ S.O.S.D.C: Simple On Screen Death Counter.
 
 Simple On Screen Death Counter for streamers (twitchtv ,Ustream,etc). Increments count by 1 when hotkey its pressd and saves it to a text file stored where the program's exe is stored. Just point xsplits/obs remote link/file to the file "Count.txt"
 
+Just need .net framework 4 client profile to run.
+
 How To Use
 =========
 
@@ -31,6 +33,11 @@ Reverse Text Order:Reverses the text order in text file.Off:"Message:Count" On:"
 Don't Change hotkey:Check this when you don't want the hotkey changed.Uncheck when you want to change the hotkey.
 
 Current HotKey:Sates the current hotkey.
+
+
+Building
+==========
+Just need  Microsof visual studio(or C#) 2010 express and .net framework 4 client profile.
 
 
 License
