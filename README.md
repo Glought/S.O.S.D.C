@@ -26,14 +26,11 @@ Start Tag:For use in Xsplit. Remove for use in OBS.Default: "<xsplit>
 
 End Tag: For use in Xsplit. Remove for use in OBS.Default: "</xsplit>
 
-HotKey: Select from the list what hotkey you want to use:Default:H
+HotKey: Select from the list what hotkey you want to use:Default:H.The Hot Key will only change if it isn't set to "None".
 
 Save Count:When checked will save count number.Usefull when you want to continue your stream/video at a later date.Default:Off
 
 Reverse Text Order:Reverses the text order in text file.Off:"Message:Count" On:"Count:Message".Default:Off
-
-Lock Icon:Click to unlock when you want to change the hotkey.Unlocked on first use of S.O.S.D.C.
-Will be locked when apply or cancel is clicked.
 
 Current HotKey:Sates the current hotkey.
 
