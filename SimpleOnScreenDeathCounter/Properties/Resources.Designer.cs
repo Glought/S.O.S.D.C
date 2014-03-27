@@ -67,20 +67,6 @@ namespace SimpleOnScreenDeathCounter.Properties {
             }
         }
         
-        internal static System.Drawing.Bitmap lock_closed {
-            get {
-                object obj = ResourceManager.GetObject("lock_closed", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap lock_open {
-            get {
-                object obj = ResourceManager.GetObject("lock_open", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
         internal static System.Drawing.Bitmap RedOFF {
             get {
                 object obj = ResourceManager.GetObject("RedOFF", resourceCulture);

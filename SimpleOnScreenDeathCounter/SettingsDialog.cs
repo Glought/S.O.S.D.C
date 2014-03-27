@@ -36,19 +36,39 @@ namespace SimpleOnScreenDeathCounter
         public SettingsDialog()
         {
             InitializeComponent();
+            if (Properties.Settings.Default.FirstRun)
+            {
+                Properties.Settings.Default.HotKey = Keys.H;
+                this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+                this.Text = "S.O.S.D.C:First Run";
+                this.toolTip1.SetToolTip(this, "Simple On Screen Death Counter(S.O.S.D.C):First Run.Click Apply if you want to use default Hot key:H");
+            }
+            else
+            {
+                this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            }
         }
 
         private void applySettingButton_Click(object sender, EventArgs e)
         {
-            if (!Properties.Settings.Default.DontChangeHotkey)
+            if (hotKeyComboBox.SelectedValue.ToString() != "None")
             {
                 Enum.TryParse<Keys>(hotKeyComboBox.SelectedValue.ToString(), out keys);
                 Properties.Settings.Default.HotKey = keys;
-                Properties.Settings.Default.DontChangeHotkey = true;
             }
 
+            if (Properties.Settings.Default.FirstRun && hotKeyComboBox.SelectedValue.ToString() == "None")
+            {
+                Properties.Settings.Default.HotKey = Keys.H;
+            }
+
+            Properties.Settings.Default.XsplitObsStartTag = startTagTextBox.Text;
+            Properties.Settings.Default.XsplitObsEndTag = endTagTextBox.Text;
+
+           
             Properties.Settings.Default.Save();
             Close();
+            Dispose();
         }
 
         private void SettingsDialog_Load(object sender, EventArgs e)
@@ -57,40 +77,12 @@ namespace SimpleOnScreenDeathCounter
             currentHotKeyLabel.Text = Properties.Settings.Default.HotKey.ToString();
             startTagTextBox.Text = Properties.Settings.Default.XsplitObsStartTag;
             endTagTextBox.Text = Properties.Settings.Default.XsplitObsEndTag;
-
-
-            if (Properties.Settings.Default.DontChangeHotkey)
-            {
-                this.lockPicture.Image = global::SimpleOnScreenDeathCounter.Properties.Resources.lock_closed;
-            }
-            else
-            {
-                this.lockPicture.Image = global::SimpleOnScreenDeathCounter.Properties.Resources.lock_open;
-            }
-
         }
 
         private void cancelButton_Click(object sender, EventArgs e)
         {
-            if (!Properties.Settings.Default.DontChangeHotkey)
-            {
-                Properties.Settings.Default.DontChangeHotkey = true;
-            }
             Close();
-        }
-
-        private void LockPicture_Click(object sender, EventArgs e)
-        {
-            if (Properties.Settings.Default.DontChangeHotkey)
-            {
-                this.lockPicture.Image = global::SimpleOnScreenDeathCounter.Properties.Resources.lock_open;
-                Properties.Settings.Default.DontChangeHotkey = false;
-            }
-            else
-            {
-                Properties.Settings.Default.DontChangeHotkey = true;
-                this.lockPicture.Image = global::SimpleOnScreenDeathCounter.Properties.Resources.lock_closed;
-            }
+            Dispose();
         }
     }
 }

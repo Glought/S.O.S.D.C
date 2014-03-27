@@ -45,9 +45,16 @@ namespace SimpleOnScreenDeathCounter
 
             if (Properties.Settings.Default.FirstRun)
             {
-            Properties.Settings.Default.HotKey = Keys.H;
-            Properties.Settings.Default.FirstRun = false;
+
+                SettingsDialog settings = new SettingsDialog();
+                if (settings.Created == false)
+                {
+                    settings.ShowDialog();
+                }
+
+                Properties.Settings.Default.FirstRun = false;
             }
+
             messageTextBox.Text = Properties.Settings.Default.Message;
             this.Message = messageTextBox.Text;
 
@@ -145,7 +152,7 @@ namespace SimpleOnScreenDeathCounter
 
                 currentCountLabel.Text = Count.ToString();
             }
-            
+
             writeToFile();
         }
 

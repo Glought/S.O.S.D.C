@@ -59,12 +59,10 @@ namespace SimpleOnScreenDeathCounter
             this.currentHotKeyLabel = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.cancelButton = new System.Windows.Forms.Button();
-            this.lockPicture = new System.Windows.Forms.PictureBox();
             this.reverseTextOrder = new System.Windows.Forms.CheckBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.endTagTextBox = new System.Windows.Forms.TextBox();
             this.startTagTextBox = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.lockPicture)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -105,7 +103,7 @@ namespace SimpleOnScreenDeathCounter
             // 
             // applySettingButton
             // 
-            this.applySettingButton.Location = new System.Drawing.Point(3, 167);
+            this.applySettingButton.Location = new System.Drawing.Point(5, 165);
             this.applySettingButton.Name = "applySettingButton";
             this.applySettingButton.Size = new System.Drawing.Size(81, 23);
             this.applySettingButton.TabIndex = 6;
@@ -117,7 +115,7 @@ namespace SimpleOnScreenDeathCounter
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(2, 151);
+            this.label4.Location = new System.Drawing.Point(3, 149);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(82, 13);
             this.label4.TabIndex = 7;
@@ -126,7 +124,7 @@ namespace SimpleOnScreenDeathCounter
             // currentHotKeyLabel
             // 
             this.currentHotKeyLabel.AutoSize = true;
-            this.currentHotKeyLabel.Location = new System.Drawing.Point(84, 151);
+            this.currentHotKeyLabel.Location = new System.Drawing.Point(85, 149);
             this.currentHotKeyLabel.Name = "currentHotKeyLabel";
             this.currentHotKeyLabel.Size = new System.Drawing.Size(25, 13);
             this.currentHotKeyLabel.TabIndex = 8;
@@ -134,7 +132,7 @@ namespace SimpleOnScreenDeathCounter
             // 
             // cancelButton
             // 
-            this.cancelButton.Location = new System.Drawing.Point(87, 167);
+            this.cancelButton.Location = new System.Drawing.Point(92, 165);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(75, 23);
             this.cancelButton.TabIndex = 9;
@@ -143,26 +141,12 @@ namespace SimpleOnScreenDeathCounter
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
-            // lockPicture
-            // 
-            this.lockPicture.Image = global::SimpleOnScreenDeathCounter.Properties.Resources.lock_open;
-            this.lockPicture.InitialImage = null;
-            this.lockPicture.Location = new System.Drawing.Point(90, 81);
-            this.lockPicture.Name = "lockPicture";
-            this.lockPicture.Size = new System.Drawing.Size(48, 48);
-            this.lockPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.lockPicture.TabIndex = 14;
-            this.lockPicture.TabStop = false;
-            this.toolTip1.SetToolTip(this.lockPicture, "Click to unlock to change hotkey.Unlocked on first use of\r\nS.O.S.D.C Will be lock" +
-        "ed when Apply or Cancel is clicked.\r\n");
-            this.lockPicture.Click += new System.EventHandler(this.LockPicture_Click);
-            // 
             // reverseTextOrder
             // 
             this.reverseTextOrder.AutoSize = true;
             this.reverseTextOrder.Checked = global::SimpleOnScreenDeathCounter.Properties.Settings.Default.ReverseOrder;
             this.reverseTextOrder.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::SimpleOnScreenDeathCounter.Properties.Settings.Default, "ReverseOrder", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.reverseTextOrder.Location = new System.Drawing.Point(4, 131);
+            this.reverseTextOrder.Location = new System.Drawing.Point(5, 132);
             this.reverseTextOrder.Name = "reverseTextOrder";
             this.reverseTextOrder.Size = new System.Drawing.Size(119, 17);
             this.reverseTextOrder.TabIndex = 12;
@@ -176,7 +160,7 @@ namespace SimpleOnScreenDeathCounter
             this.checkBox1.AutoSize = true;
             this.checkBox1.Checked = global::SimpleOnScreenDeathCounter.Properties.Settings.Default.SaveCount;
             this.checkBox1.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::SimpleOnScreenDeathCounter.Properties.Settings.Default, "SaveCount", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.checkBox1.Location = new System.Drawing.Point(4, 117);
+            this.checkBox1.Location = new System.Drawing.Point(5, 118);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(85, 17);
             this.checkBox1.TabIndex = 11;
@@ -187,22 +171,20 @@ namespace SimpleOnScreenDeathCounter
             // 
             // endTagTextBox
             // 
-            this.endTagTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::SimpleOnScreenDeathCounter.Properties.Settings.Default, "XsplitObsEndTag", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.endTagTextBox.Location = new System.Drawing.Point(5, 58);
             this.endTagTextBox.Name = "endTagTextBox";
             this.endTagTextBox.Size = new System.Drawing.Size(157, 20);
             this.endTagTextBox.TabIndex = 1;
-            this.endTagTextBox.Text = global::SimpleOnScreenDeathCounter.Properties.Settings.Default.XsplitObsEndTag;
+            this.endTagTextBox.Text = "</xsplit>";
             this.toolTip1.SetToolTip(this.endTagTextBox, "End Tag for use in Xsplit. Remove text for use in OBS");
             // 
             // startTagTextBox
             // 
-            this.startTagTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::SimpleOnScreenDeathCounter.Properties.Settings.Default, "XsplitObsStartTag", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.startTagTextBox.Location = new System.Drawing.Point(5, 19);
             this.startTagTextBox.Name = "startTagTextBox";
             this.startTagTextBox.Size = new System.Drawing.Size(157, 20);
             this.startTagTextBox.TabIndex = 0;
-            this.startTagTextBox.Text = global::SimpleOnScreenDeathCounter.Properties.Settings.Default.XsplitObsStartTag;
+            this.startTagTextBox.Text = "<xsplit>";
             this.toolTip1.SetToolTip(this.startTagTextBox, "Stat Tag for use in Xsplit. Remove text for use in OBS");
             // 
             // SettingsDialog
@@ -210,8 +192,7 @@ namespace SimpleOnScreenDeathCounter
             this.AcceptButton = this.applySettingButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(166, 193);
-            this.Controls.Add(this.lockPicture);
+            this.ClientSize = new System.Drawing.Size(168, 193);
             this.Controls.Add(this.reverseTextOrder);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.cancelButton);
@@ -230,11 +211,10 @@ namespace SimpleOnScreenDeathCounter
             this.MinimizeBox = false;
             this.Name = "SettingsDialog";
             this.ShowInTaskbar = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "S.O.S.D.C: Settings";
             this.toolTip1.SetToolTip(this, "Simple On Screen Death Counter(S.O.S.D.C):Settings");
             this.Load += new System.EventHandler(this.SettingsDialog_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.lockPicture)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -255,6 +235,5 @@ namespace SimpleOnScreenDeathCounter
         private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.CheckBox reverseTextOrder;
-        private System.Windows.Forms.PictureBox lockPicture;
     }
 }
