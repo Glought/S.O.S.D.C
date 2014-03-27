@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 V1.1.0
 Removed Lock -The Hot Key will now only change if it isn't set to "None".
 
@@ -6,5 +7,11 @@ Made "S.O.S.D.C:Settings" Appear first on first run as "S.O.D.C:First Run"
 V1.0.1:
 Made "H" the default Hot key
 
+=======
+V1.0.1:
+Made "H" the default Hot key
+
+
+>>>>>>> 3204bdff90203bedd6d36bfe72ad32b1af557226
 V1.0.0:
 First release.
