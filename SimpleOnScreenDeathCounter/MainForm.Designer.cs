@@ -62,26 +62,28 @@ namespace SimpleOnScreenDeathCounter
             this.onOffLabel = new System.Windows.Forms.Label();
             this.messageTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.currentHotKeyLabel = new System.Windows.Forms.Label();
+            this.currentHotKeyInLabel = new System.Windows.Forms.Label();
             this.KeyboardKeyEventProvider1 = new MouseKeyboardActivityMonitor.Controls.MouseKeyEventProvider();
+            this.label1 = new System.Windows.Forms.Label();
+            this.currentHotKeyDeLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // apply_Button
             // 
-            this.apply_Button.Location = new System.Drawing.Point(2, 86);
+            this.apply_Button.Location = new System.Drawing.Point(2, 101);
             this.apply_Button.Name = "apply_Button";
             this.apply_Button.Size = new System.Drawing.Size(82, 24);
             this.apply_Button.TabIndex = 0;
             this.apply_Button.Text = "Start/Save";
-            this.toolTip.SetToolTip(this.apply_Button, "Enables the hotkey and save the text in the message text box.\r\nClosing the progra" +
-        "m will also save the text.\r\n");
+            this.toolTip.SetToolTip(this.apply_Button, "Enables the hotkeys and save the text in the message text box.\r\nClosing the progr" +
+                    "am will also save the text.\r\n");
             this.apply_Button.UseVisualStyleBackColor = true;
             this.apply_Button.Click += new System.EventHandler(this.Start_Button_Click);
             // 
             // messageLabel
             // 
             this.messageLabel.AutoSize = true;
-            this.messageLabel.Location = new System.Drawing.Point(-1, 15);
+            this.messageLabel.Location = new System.Drawing.Point(-1, 30);
             this.messageLabel.Name = "messageLabel";
             this.messageLabel.Size = new System.Drawing.Size(53, 13);
             this.messageLabel.TabIndex = 3;
@@ -90,7 +92,7 @@ namespace SimpleOnScreenDeathCounter
             // countLabel
             // 
             this.countLabel.AutoSize = true;
-            this.countLabel.Location = new System.Drawing.Point(-1, 62);
+            this.countLabel.Location = new System.Drawing.Point(-1, 77);
             this.countLabel.MaximumSize = new System.Drawing.Size(0, 25);
             this.countLabel.Name = "countLabel";
             this.countLabel.Size = new System.Drawing.Size(38, 13);
@@ -99,20 +101,20 @@ namespace SimpleOnScreenDeathCounter
             // 
             // settingsButton
             // 
-            this.settingsButton.Location = new System.Drawing.Point(90, 86);
+            this.settingsButton.Location = new System.Drawing.Point(90, 101);
             this.settingsButton.Name = "settingsButton";
             this.settingsButton.Size = new System.Drawing.Size(75, 24);
             this.settingsButton.TabIndex = 5;
             this.settingsButton.Text = "Settings";
             this.toolTip.SetToolTip(this.settingsButton, "Settings dialog to set HotKey and Set Start and End tags for Xsplit.Disables the " +
-        "hotkey");
+                    "hotkey");
             this.settingsButton.UseVisualStyleBackColor = true;
             this.settingsButton.Click += new System.EventHandler(this.settingsButton_Click);
             // 
             // currentCountLabel
             // 
             this.currentCountLabel.AutoSize = true;
-            this.currentCountLabel.Location = new System.Drawing.Point(34, 62);
+            this.currentCountLabel.Location = new System.Drawing.Point(34, 77);
             this.currentCountLabel.Name = "currentCountLabel";
             this.currentCountLabel.Size = new System.Drawing.Size(13, 13);
             this.currentCountLabel.TabIndex = 6;
@@ -120,7 +122,7 @@ namespace SimpleOnScreenDeathCounter
             // 
             // resetButton
             // 
-            this.resetButton.Location = new System.Drawing.Point(90, 57);
+            this.resetButton.Location = new System.Drawing.Point(90, 72);
             this.resetButton.Name = "resetButton";
             this.resetButton.Size = new System.Drawing.Size(75, 23);
             this.resetButton.TabIndex = 7;
@@ -131,7 +133,7 @@ namespace SimpleOnScreenDeathCounter
             // 
             // StopButton
             // 
-            this.StopButton.Location = new System.Drawing.Point(58, 57);
+            this.StopButton.Location = new System.Drawing.Point(58, 72);
             this.StopButton.Name = "StopButton";
             this.StopButton.Size = new System.Drawing.Size(26, 23);
             this.StopButton.TabIndex = 8;
@@ -149,17 +151,17 @@ namespace SimpleOnScreenDeathCounter
             // 
             this.onOffLabel.AutoSize = true;
             this.onOffLabel.Image = global::SimpleOnScreenDeathCounter.Properties.Resources.RedOFF;
-            this.onOffLabel.Location = new System.Drawing.Point(128, 9);
+            this.onOffLabel.Location = new System.Drawing.Point(128, 28);
             this.onOffLabel.Name = "onOffLabel";
             this.onOffLabel.Size = new System.Drawing.Size(37, 13);
             this.onOffLabel.TabIndex = 9;
             this.onOffLabel.Text = "          ";
-            this.toolTip.SetToolTip(this.onOffLabel, "Green:HotKey Enabled. Red:Hotkey disabled");
+            this.toolTip.SetToolTip(this.onOffLabel, "Green:HotKeys Enabled. Red:Hotkeys disabled");
             // 
             // messageTextBox
             // 
             this.messageTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::SimpleOnScreenDeathCounter.Properties.Settings.Default, "Message", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.messageTextBox.Location = new System.Drawing.Point(2, 31);
+            this.messageTextBox.Location = new System.Drawing.Point(2, 46);
             this.messageTextBox.Name = "messageTextBox";
             this.messageTextBox.Size = new System.Drawing.Size(163, 20);
             this.messageTextBox.TabIndex = 1;
@@ -171,31 +173,51 @@ namespace SimpleOnScreenDeathCounter
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(-1, 2);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(82, 13);
+            this.label2.Size = new System.Drawing.Size(132, 13);
             this.label2.TabIndex = 10;
-            this.label2.Text = "Current HotKey:";
+            this.label2.Text = "Current HotKey Increment:";
             // 
-            // currentHotKeyLabel
+            // currentHotKeyInLabel
             // 
-            this.currentHotKeyLabel.AutoSize = true;
-            this.currentHotKeyLabel.Location = new System.Drawing.Point(78, 2);
-            this.currentHotKeyLabel.Name = "currentHotKeyLabel";
-            this.currentHotKeyLabel.Size = new System.Drawing.Size(25, 13);
-            this.currentHotKeyLabel.TabIndex = 11;
-            this.currentHotKeyLabel.Text = "Key";
+            this.currentHotKeyInLabel.AutoSize = true;
+            this.currentHotKeyInLabel.Location = new System.Drawing.Point(137, 2);
+            this.currentHotKeyInLabel.Name = "currentHotKeyInLabel";
+            this.currentHotKeyInLabel.Size = new System.Drawing.Size(25, 13);
+            this.currentHotKeyInLabel.TabIndex = 11;
+            this.currentHotKeyInLabel.Text = "Key";
             // 
             // KeyboardKeyEventProvider1
             // 
             this.KeyboardKeyEventProvider1.Enabled = false;
             this.KeyboardKeyEventProvider1.HookType = MouseKeyboardActivityMonitor.Controls.HookType.Global;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(-1, 15);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(137, 13);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "Current HotKey Decrement:";
+            // 
+            // currentHotKeyDeLabel
+            // 
+            this.currentHotKeyDeLabel.AutoSize = true;
+            this.currentHotKeyDeLabel.Location = new System.Drawing.Point(137, 15);
+            this.currentHotKeyDeLabel.Name = "currentHotKeyDeLabel";
+            this.currentHotKeyDeLabel.Size = new System.Drawing.Size(25, 13);
+            this.currentHotKeyDeLabel.TabIndex = 11;
+            this.currentHotKeyDeLabel.Text = "Key";
+            // 
             // MainForm
             // 
             this.AcceptButton = this.apply_Button;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(167, 112);
-            this.Controls.Add(this.currentHotKeyLabel);
+            this.ClientSize = new System.Drawing.Size(167, 130);
+            this.Controls.Add(this.currentHotKeyDeLabel);
+            this.Controls.Add(this.currentHotKeyInLabel);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.onOffLabel);
             this.Controls.Add(this.StopButton);
@@ -234,8 +256,10 @@ namespace SimpleOnScreenDeathCounter
         private System.Windows.Forms.ToolTip toolTip;
         private System.Windows.Forms.Label onOffLabel;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label currentHotKeyLabel;
+        private System.Windows.Forms.Label currentHotKeyInLabel;
         private MouseKeyboardActivityMonitor.Controls.MouseKeyEventProvider KeyboardKeyEventProvider1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label currentHotKeyDeLabel;
     }
 }
 

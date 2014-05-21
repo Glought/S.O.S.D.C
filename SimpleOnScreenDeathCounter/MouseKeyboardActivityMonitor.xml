@@ -67,58 +67,6 @@
             Activated when the user moves the mouse. 
             </summary>
         </member>
-        <member name="E:MouseKeyboardActivityMonitor.Controls.MouseKeyEventProvider.MouseClick">
-            <summary>
-            Activated upon a single click of the mouse.
-            </summary>
-        </member>
-        <member name="E:MouseKeyboardActivityMonitor.Controls.MouseKeyEventProvider.MouseDown">
-            <summary>
-            Activated when the user presses a mouse button.
-            </summary>
-        </member>
-        <member name="E:MouseKeyboardActivityMonitor.Controls.MouseKeyEventProvider.MouseUp">
-            <summary>
-            Activated when the user releases a mouse button.
-            </summary>
-        </member>
-        <member name="E:MouseKeyboardActivityMonitor.Controls.MouseKeyEventProvider.MouseDoubleClick">
-            <summary>
-            Activated when the user double-clicks with the mouse.
-            </summary>
-        </member>
-        <member name="E:MouseKeyboardActivityMonitor.Controls.MouseKeyEventProvider.MouseMoveExt">
-            <summary>
-            Activated when the user moves the mouse. 
-            </summary>
-            <remarks>
-            This event provides extended arguments of type <see cref="T:System.Windows.Forms.MouseEventArgs"/> enabling you to 
-            supress further processing of mouse movement in other applications.
-            </remarks>
-        </member>
-        <member name="E:MouseKeyboardActivityMonitor.Controls.MouseKeyEventProvider.MouseClickExt">
-            <summary>
-            Activated upon a single click of the mouse.
-            </summary>
-            <remarks>
-            This event provides extended arguments of type <see cref="T:System.Windows.Forms.MouseEventArgs"/> enabling you to 
-            supress further processing of mouse click in other applications.
-            </remarks>
-        </member>
-        <member name="E:MouseKeyboardActivityMonitor.Controls.MouseKeyEventProvider.MouseDownExt">
-            <summary>
-            Activated when the user presses a mouse button.
-            </summary>
-            <remarks>
-            This event provides extended arguments of type <see cref="T:System.Windows.Forms.MouseEventArgs"/> enabling you to 
-            supress further processing of mouse down in other applications.
-            </remarks>
-        </member>
-        <member name="E:MouseKeyboardActivityMonitor.Controls.MouseKeyEventProvider.MouseWheel">
-            <summary>
-            Activated upon mouse scrolling.
-            </summary>
-        </member>
         <member name="E:MouseKeyboardActivityMonitor.Controls.MouseKeyEventProvider.KeyPress">
              <summary>
              Activated when the user presses a key.

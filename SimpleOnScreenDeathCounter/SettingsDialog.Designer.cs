@@ -53,16 +53,21 @@ namespace SimpleOnScreenDeathCounter
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.hotKeyComboBox = new System.Windows.Forms.ComboBox();
+            this.hotKeyInComboBox = new System.Windows.Forms.ComboBox();
             this.applySettingButton = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.currentHotKeyLabel = new System.Windows.Forms.Label();
+            this.currentHotKeyInLabel = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.cancelButton = new System.Windows.Forms.Button();
-            this.reverseTextOrder = new System.Windows.Forms.CheckBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.endTagTextBox = new System.Windows.Forms.TextBox();
             this.startTagTextBox = new System.Windows.Forms.TextBox();
+            this.OBSToggleCheckBox = new System.Windows.Forms.CheckBox();
+            this.reverseTextOrder = new System.Windows.Forms.CheckBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.hotKeyDeComboBox = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.currentHotKeyDeLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -88,22 +93,22 @@ namespace SimpleOnScreenDeathCounter
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(2, 81);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(45, 13);
+            this.label3.Size = new System.Drawing.Size(95, 13);
             this.label3.TabIndex = 4;
-            this.label3.Text = "HotKey:";
+            this.label3.Text = "HotKey Increment:";
             // 
-            // hotKeyComboBox
+            // hotKeyInComboBox
             // 
-            this.hotKeyComboBox.FormattingEnabled = true;
-            this.hotKeyComboBox.Location = new System.Drawing.Point(5, 94);
-            this.hotKeyComboBox.Name = "hotKeyComboBox";
-            this.hotKeyComboBox.Size = new System.Drawing.Size(81, 21);
-            this.hotKeyComboBox.TabIndex = 5;
-            this.toolTip1.SetToolTip(this.hotKeyComboBox, "Select the hotkey you want to use.");
+            this.hotKeyInComboBox.FormattingEnabled = true;
+            this.hotKeyInComboBox.Location = new System.Drawing.Point(5, 94);
+            this.hotKeyInComboBox.Name = "hotKeyInComboBox";
+            this.hotKeyInComboBox.Size = new System.Drawing.Size(81, 21);
+            this.hotKeyInComboBox.TabIndex = 5;
+            this.toolTip1.SetToolTip(this.hotKeyInComboBox, "Select the hotkey you want to use.");
             // 
             // applySettingButton
             // 
-            this.applySettingButton.Location = new System.Drawing.Point(5, 165);
+            this.applySettingButton.Location = new System.Drawing.Point(5, 237);
             this.applySettingButton.Name = "applySettingButton";
             this.applySettingButton.Size = new System.Drawing.Size(81, 23);
             this.applySettingButton.TabIndex = 6;
@@ -115,24 +120,24 @@ namespace SimpleOnScreenDeathCounter
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(3, 149);
+            this.label4.Location = new System.Drawing.Point(1, 208);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(82, 13);
+            this.label4.Size = new System.Drawing.Size(132, 13);
             this.label4.TabIndex = 7;
-            this.label4.Text = "Current HotKey:";
+            this.label4.Text = "Current HotKey Increment:";
             // 
-            // currentHotKeyLabel
+            // currentHotKeyInLabel
             // 
-            this.currentHotKeyLabel.AutoSize = true;
-            this.currentHotKeyLabel.Location = new System.Drawing.Point(85, 149);
-            this.currentHotKeyLabel.Name = "currentHotKeyLabel";
-            this.currentHotKeyLabel.Size = new System.Drawing.Size(25, 13);
-            this.currentHotKeyLabel.TabIndex = 8;
-            this.currentHotKeyLabel.Text = "Key";
+            this.currentHotKeyInLabel.AutoSize = true;
+            this.currentHotKeyInLabel.Location = new System.Drawing.Point(137, 208);
+            this.currentHotKeyInLabel.Name = "currentHotKeyInLabel";
+            this.currentHotKeyInLabel.Size = new System.Drawing.Size(25, 13);
+            this.currentHotKeyInLabel.TabIndex = 8;
+            this.currentHotKeyInLabel.Text = "Key";
             // 
             // cancelButton
             // 
-            this.cancelButton.Location = new System.Drawing.Point(92, 165);
+            this.cancelButton.Location = new System.Drawing.Point(87, 237);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(75, 23);
             this.cancelButton.TabIndex = 9;
@@ -140,34 +145,6 @@ namespace SimpleOnScreenDeathCounter
             this.toolTip1.SetToolTip(this.cancelButton, "Saves nothing and closes dialog.");
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
-            // 
-            // reverseTextOrder
-            // 
-            this.reverseTextOrder.AutoSize = true;
-            this.reverseTextOrder.Checked = global::SimpleOnScreenDeathCounter.Properties.Settings.Default.ReverseOrder;
-            this.reverseTextOrder.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::SimpleOnScreenDeathCounter.Properties.Settings.Default, "ReverseOrder", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.reverseTextOrder.Location = new System.Drawing.Point(5, 132);
-            this.reverseTextOrder.Name = "reverseTextOrder";
-            this.reverseTextOrder.Size = new System.Drawing.Size(119, 17);
-            this.reverseTextOrder.TabIndex = 12;
-            this.reverseTextOrder.Text = "Reverse Text Order";
-            this.toolTip1.SetToolTip(this.reverseTextOrder, "When Checked The Message and Count will be Reversed.\r\nExample: Off : Message:Coun" +
-        "t. On: Count:Message.\r\n");
-            this.reverseTextOrder.UseVisualStyleBackColor = true;
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Checked = global::SimpleOnScreenDeathCounter.Properties.Settings.Default.SaveCount;
-            this.checkBox1.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::SimpleOnScreenDeathCounter.Properties.Settings.Default, "SaveCount", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.checkBox1.Location = new System.Drawing.Point(5, 118);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(85, 17);
-            this.checkBox1.TabIndex = 11;
-            this.checkBox1.Text = "Save Count.";
-            this.toolTip1.SetToolTip(this.checkBox1, "When checked it will save the count when program closed.Good for when\r\nyou need t" +
-        "o end your stream/recording session and want to keep the \r\nthe count.");
-            this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // endTagTextBox
             // 
@@ -187,19 +164,102 @@ namespace SimpleOnScreenDeathCounter
             this.startTagTextBox.Text = "<xsplit>";
             this.toolTip1.SetToolTip(this.startTagTextBox, "Stat Tag for use in Xsplit. Remove text for use in OBS");
             // 
+            // OBSToggleCheckBox
+            // 
+            this.OBSToggleCheckBox.AutoSize = true;
+            this.OBSToggleCheckBox.Checked = global::SimpleOnScreenDeathCounter.Properties.Settings.Default.OBSToggle;
+            this.OBSToggleCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::SimpleOnScreenDeathCounter.Properties.Settings.Default, "OBSToggle", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.OBSToggleCheckBox.Location = new System.Drawing.Point(5, 189);
+            this.OBSToggleCheckBox.Name = "OBSToggleCheckBox";
+            this.OBSToggleCheckBox.Size = new System.Drawing.Size(84, 17);
+            this.OBSToggleCheckBox.TabIndex = 13;
+            this.OBSToggleCheckBox.Text = "OBS Toggle";
+            this.toolTip1.SetToolTip(this.OBSToggleCheckBox, "When Checked Start and end tags are ignored and disabled.\r\n");
+            this.OBSToggleCheckBox.UseVisualStyleBackColor = true;
+            this.OBSToggleCheckBox.CheckStateChanged += new System.EventHandler(this.OBSToggleCheckBox_CheckStateChanged);
+            // 
+            // reverseTextOrder
+            // 
+            this.reverseTextOrder.AutoSize = true;
+            this.reverseTextOrder.Checked = global::SimpleOnScreenDeathCounter.Properties.Settings.Default.ReverseOrder;
+            this.reverseTextOrder.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::SimpleOnScreenDeathCounter.Properties.Settings.Default, "ReverseOrder", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.reverseTextOrder.Location = new System.Drawing.Point(5, 173);
+            this.reverseTextOrder.Name = "reverseTextOrder";
+            this.reverseTextOrder.Size = new System.Drawing.Size(119, 17);
+            this.reverseTextOrder.TabIndex = 12;
+            this.reverseTextOrder.Text = "Reverse Text Order";
+            this.toolTip1.SetToolTip(this.reverseTextOrder, "When Checked The Message and Count will be Reversed.\r\nExample: Off : Message:Coun" +
+                    "t. On: Count:Message.\r\n");
+            this.reverseTextOrder.UseVisualStyleBackColor = true;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Checked = global::SimpleOnScreenDeathCounter.Properties.Settings.Default.SaveCount;
+            this.checkBox1.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::SimpleOnScreenDeathCounter.Properties.Settings.Default, "SaveCount", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.checkBox1.Location = new System.Drawing.Point(5, 159);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(85, 17);
+            this.checkBox1.TabIndex = 11;
+            this.checkBox1.Text = "Save Count.";
+            this.toolTip1.SetToolTip(this.checkBox1, "When checked it will save the count when program closed.Good for when\r\nyou need t" +
+                    "o end your stream/recording session and want to keep the \r\nthe count.");
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // hotKeyDeComboBox
+            // 
+            this.hotKeyDeComboBox.FormattingEnabled = true;
+            this.hotKeyDeComboBox.Location = new System.Drawing.Point(4, 134);
+            this.hotKeyDeComboBox.Name = "hotKeyDeComboBox";
+            this.hotKeyDeComboBox.Size = new System.Drawing.Size(81, 21);
+            this.hotKeyDeComboBox.TabIndex = 14;
+            this.toolTip1.SetToolTip(this.hotKeyDeComboBox, "Select the hotkey you want to use.");
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(2, 118);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(100, 13);
+            this.label5.TabIndex = 15;
+            this.label5.Text = "HotKey Decrement:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(1, 221);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(137, 13);
+            this.label6.TabIndex = 7;
+            this.label6.Text = "Current HotKey Decrement:";
+            // 
+            // currentHotKeyDeLabel
+            // 
+            this.currentHotKeyDeLabel.AutoSize = true;
+            this.currentHotKeyDeLabel.Location = new System.Drawing.Point(137, 221);
+            this.currentHotKeyDeLabel.Name = "currentHotKeyDeLabel";
+            this.currentHotKeyDeLabel.Size = new System.Drawing.Size(25, 13);
+            this.currentHotKeyDeLabel.TabIndex = 8;
+            this.currentHotKeyDeLabel.Text = "Key";
+            // 
             // SettingsDialog
             // 
             this.AcceptButton = this.applySettingButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(168, 193);
+            this.ClientSize = new System.Drawing.Size(173, 266);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.hotKeyDeComboBox);
+            this.Controls.Add(this.OBSToggleCheckBox);
             this.Controls.Add(this.reverseTextOrder);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.cancelButton);
-            this.Controls.Add(this.currentHotKeyLabel);
+            this.Controls.Add(this.currentHotKeyDeLabel);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.currentHotKeyInLabel);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.applySettingButton);
-            this.Controls.Add(this.hotKeyComboBox);
+            this.Controls.Add(this.hotKeyInComboBox);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -227,13 +287,18 @@ namespace SimpleOnScreenDeathCounter
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox hotKeyComboBox;
+        private System.Windows.Forms.ComboBox hotKeyInComboBox;
         private System.Windows.Forms.Button applySettingButton;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label currentHotKeyLabel;
+        private System.Windows.Forms.Label currentHotKeyInLabel;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.CheckBox reverseTextOrder;
+        private System.Windows.Forms.CheckBox OBSToggleCheckBox;
+        private System.Windows.Forms.ComboBox hotKeyDeComboBox;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label currentHotKeyDeLabel;
     }
 }

@@ -16,29 +16,23 @@
   along with Simple On Screen Death Counter(S.O.S.D.C).  If not, see <http://www.gnu.org/licenses/>.
 */
 
-
-
-
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
+
 
 namespace SimpleOnScreenDeathCounter
 {
     public partial class SettingsDialog : Form
     {
-        Keys keys;
+        private Keys keys;
+
         public SettingsDialog()
         {
             InitializeComponent();
             if (Properties.Settings.Default.FirstRun)
             {
-                Properties.Settings.Default.HotKey = Keys.H;
+                Properties.Settings.Default.HotKeyIn = Keys.H;
+                Properties.Settings.Default.HotKeyDe = Keys.J;
                 this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
                 this.Text = "S.O.S.D.C:First Run";
                 this.toolTip1.SetToolTip(this, "Simple On Screen Death Counter(S.O.S.D.C):First Run.Click Apply if you want to use default Hot key:H");
@@ -51,21 +45,26 @@ namespace SimpleOnScreenDeathCounter
 
         private void applySettingButton_Click(object sender, EventArgs e)
         {
-            if (hotKeyComboBox.SelectedValue.ToString() != "None")
+            if (hotKeyInComboBox.SelectedValue.ToString() != "None")
             {
-                Enum.TryParse<Keys>(hotKeyComboBox.SelectedValue.ToString(), out keys);
-                Properties.Settings.Default.HotKey = keys;
+                Enum.TryParse<Keys>(hotKeyInComboBox.SelectedValue.ToString(), out keys);
+                Properties.Settings.Default.HotKeyIn = keys;
+            }
+            if (hotKeyDeComboBox.SelectedValue.ToString() != "None")
+            {
+                Enum.TryParse<Keys>(hotKeyDeComboBox.SelectedValue.ToString(), out keys);
+                Properties.Settings.Default.HotKeyDe = keys;
             }
 
-            if (Properties.Settings.Default.FirstRun && hotKeyComboBox.SelectedValue.ToString() == "None")
+            if (Properties.Settings.Default.FirstRun && hotKeyInComboBox.SelectedValue.ToString() == "None" && hotKeyDeComboBox.SelectedValue.ToString() == "None")
             {
-                Properties.Settings.Default.HotKey = Keys.H;
+                Properties.Settings.Default.HotKeyIn = Keys.H;
+                Properties.Settings.Default.HotKeyDe = Keys.J;
             }
 
             Properties.Settings.Default.XsplitObsStartTag = startTagTextBox.Text;
             Properties.Settings.Default.XsplitObsEndTag = endTagTextBox.Text;
 
-           
             Properties.Settings.Default.Save();
             Close();
             Dispose();
@@ -73,16 +72,42 @@ namespace SimpleOnScreenDeathCounter
 
         private void SettingsDialog_Load(object sender, EventArgs e)
         {
-            hotKeyComboBox.DataSource = Enum.GetValues(typeof(Keys));
-            currentHotKeyLabel.Text = Properties.Settings.Default.HotKey.ToString();
+            hotKeyInComboBox.DataSource = Enum.GetValues(typeof(SosdcKeys));
+            hotKeyDeComboBox.DataSource = Enum.GetValues(typeof(SosdcKeys));
+            currentHotKeyInLabel.Text = Properties.Settings.Default.HotKeyIn.ToString();
+            currentHotKeyDeLabel.Text = Properties.Settings.Default.HotKeyDe.ToString();
             startTagTextBox.Text = Properties.Settings.Default.XsplitObsStartTag;
             endTagTextBox.Text = Properties.Settings.Default.XsplitObsEndTag;
+            if (Properties.Settings.Default.OBSToggle)
+            {
+                startTagTextBox.Enabled = false;
+                endTagTextBox.Enabled = false;
+            }
+            else
+            {
+                startTagTextBox.Enabled = true;
+                endTagTextBox.Enabled = true;
+            }
         }
 
         private void cancelButton_Click(object sender, EventArgs e)
         {
             Close();
             Dispose();
+        }
+
+        private void OBSToggleCheckBox_CheckStateChanged(object sender, EventArgs e)
+        {
+            if (Properties.Settings.Default.OBSToggle)
+            {
+                startTagTextBox.Enabled = false;
+                endTagTextBox.Enabled = false;
+            }
+            else
+            {
+                startTagTextBox.Enabled = true;
+                endTagTextBox.Enabled = true;
+            }
         }
     }
 }

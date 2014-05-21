@@ -1,4 +1,8 @@
-<<<<<<< HEAD
+V1.2.0
+Added "OBS Toggle" when checked start and end tags will be ignored and disabled
+Added New Hotkey for Decrementing Count.Default hotkey for decrementing is J.
+Shortened the list of choosable hotkeys mostly removed the useless ones (xbutton,Linefeed,KanaMode,Etc)
+
 V1.1.0
 Removed Lock -The Hot Key will now only change if it isn't set to "None".
 
@@ -12,6 +16,5 @@ V1.0.1:
 Made "H" the default Hot key
 
 
->>>>>>> 3204bdff90203bedd6d36bfe72ad32b1af557226
 V1.0.0:
 First release.

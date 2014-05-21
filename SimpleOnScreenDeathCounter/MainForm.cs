@@ -17,21 +17,17 @@
 */
 
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
 using System.IO;
-using MouseKeyboardActivityMonitor.WinApi;
+using System.Windows.Forms;
 using MouseKeyboardActivityMonitor;
+using MouseKeyboardActivityMonitor.WinApi;
+
 namespace SimpleOnScreenDeathCounter
 {
     public partial class MainForm : Form
     {
         private string Message { get; set; }
+
         private int Count;
         private readonly KeyboardHookListener keyboardHookManager;
 
@@ -45,7 +41,6 @@ namespace SimpleOnScreenDeathCounter
 
             if (Properties.Settings.Default.FirstRun)
             {
-
                 SettingsDialog settings = new SettingsDialog();
                 if (settings.Created == false)
                 {
@@ -71,14 +66,13 @@ namespace SimpleOnScreenDeathCounter
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            currentHotKeyLabel.Text = Properties.Settings.Default.HotKey.ToString();
-
+            currentHotKeyInLabel.Text = Properties.Settings.Default.HotKeyIn.ToString();
+            currentHotKeyDeLabel.Text = Properties.Settings.Default.HotKeyDe.ToString();
         }
 
-        void KeyBoardHook_KeyUp(object sender, KeyEventArgs e)
+        private void KeyBoardHook_KeyUp(object sender, KeyEventArgs e)
         {
-
-            if (Properties.Settings.Default.HotKeyEnabled && e.KeyCode == Properties.Settings.Default.HotKey)
+            if (Properties.Settings.Default.HotKeyEnabled && e.KeyCode == Properties.Settings.Default.HotKeyIn)
             {
                 if (Properties.Settings.Default.SaveCount)
                 {
@@ -95,7 +89,25 @@ namespace SimpleOnScreenDeathCounter
                 writeToFile();
                 e.Handled = true;
             }
+            if (Properties.Settings.Default.HotKeyEnabled && e.KeyCode == Properties.Settings.Default.HotKeyDe && Count != 0)
+            {
+                if (Properties.Settings.Default.SaveCount)
+                {
+                    Count = Count - 1;
+                    Properties.Settings.Default.Count = Count;
+                    currentCountLabel.Text = Properties.Settings.Default.Count.ToString();
+                }
+                else
+                {
+                    Count = Count - 1;
+                    currentCountLabel.Text = Count.ToString();
+                }
+                Message = messageTextBox.Text;
+                writeToFile();
+                e.Handled = true;
+            }
         }
+
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             keyboardHookManager.KeyUp -= KeyBoardHook_KeyUp;
@@ -109,20 +121,35 @@ namespace SimpleOnScreenDeathCounter
 
         private void writeToFile()
         {
-            if (Properties.Settings.Default.ReverseOrder)
+            if (Properties.Settings.Default.OBSToggle)
             {
-                File.WriteAllText(@"Count.txt", String.Format(Properties.Settings.Default.XsplitObsStartTag + "{0}:{1}" + Properties.Settings.Default.XsplitObsEndTag, Count.ToString(), Message));
+                if (Properties.Settings.Default.ReverseOrder)
+                {
+                    File.WriteAllText(@"Count.txt", String.Format("{0}:{1}", Count.ToString(), Message));
+                }
+                else
+                {
+                    File.WriteAllText(@"Count.txt", String.Format("{0}:{1}", Message, Count.ToString()));
+                }
             }
             else
             {
-                File.WriteAllText(@"Count.txt", String.Format(Properties.Settings.Default.XsplitObsStartTag + "{0}:{1}" + Properties.Settings.Default.XsplitObsEndTag, Message, Count.ToString()));
+                if (Properties.Settings.Default.ReverseOrder)
+                {
+                    File.WriteAllText(@"Count.txt", String.Format(Properties.Settings.Default.XsplitObsStartTag + "{0}:{1}" + Properties.Settings.Default.XsplitObsEndTag, Count.ToString(), Message));
+                }
+                else
+                {
+                    File.WriteAllText(@"Count.txt", String.Format(Properties.Settings.Default.XsplitObsStartTag + "{0}:{1}" + Properties.Settings.Default.XsplitObsEndTag, Message, Count.ToString()));
+                }
             }
         }
 
         private void Start_Button_Click(object sender, EventArgs e)
         {
             this.onOffLabel.Image = global::SimpleOnScreenDeathCounter.Properties.Resources.GreenOn;
-            currentHotKeyLabel.Text = Properties.Settings.Default.HotKey.ToString();
+            currentHotKeyInLabel.Text = Properties.Settings.Default.HotKeyIn.ToString();
+            currentHotKeyDeLabel.Text = Properties.Settings.Default.HotKeyDe.ToString();
             Properties.Settings.Default.HotKeyEnabled = true;
             Properties.Settings.Default.Message = messageTextBox.Text;
             Properties.Settings.Default.Save();
@@ -149,7 +176,6 @@ namespace SimpleOnScreenDeathCounter
             }
             else
             {
-
                 currentCountLabel.Text = Count.ToString();
             }
 
@@ -172,7 +198,5 @@ namespace SimpleOnScreenDeathCounter
             Properties.Settings.Default.Message = messageTextBox.Text;
             Properties.Settings.Default.Save();
         }
-
-
     }
 }

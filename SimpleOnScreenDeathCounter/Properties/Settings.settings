@@ -11,11 +11,11 @@
     <Setting Name="XsplitObsEndTag" Type="System.String" Scope="User">
       <Value Profile="(Default)">&lt;/xsplit&gt;</Value>
     </Setting>
-    <Setting Name="HotKey" Type="System.Windows.Forms.Keys" Scope="User">
-      <Value Profile="(Default)">None</Value>
+    <Setting Name="HotKeyIn" Type="System.Windows.Forms.Keys" Scope="User">
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="Count" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">0</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="SaveCount" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
@@ -28,6 +28,12 @@
     </Setting>
     <Setting Name="FirstRun" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="OBSToggle" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="HotKeyDe" Type="System.Windows.Forms.Keys" Scope="User">
+      <Value Profile="(Default)" />
     </Setting>
   </Settings>
 </SettingsFile>
